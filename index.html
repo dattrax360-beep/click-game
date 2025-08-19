@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Clicker Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        }
+        h1 {
+            font-size: 60px;
+            color: #fff;
+        }
+        button {
+            font-size: 30px;
+            padding: 15px 30px;
+            cursor: pointer;
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.2);
+        }
+        #resetBtn {
+            margin-top: 20px;
+            background-color: #6a5acd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clicks: <span id="count">0</span></h1>
+    <button id="clickBtn">Click Me!</button>
+    <br>
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        let count = 0;
+        const countDisplay = document.getElementById("count");
+        const clickBtn = document.getElementById("clickBtn");
+        const resetBtn = document.getElementById("resetBtn");
+
+        clickBtn.addEventListener("click", function() {
+            count++;
+            countDisplay.textContent = count;
+            // Change color every 10 clicks
+            if(count % 10 === 0){
+                countDisplay.style.color = "#" + Math.floor(Math.random()*16777215).toString(16);
+            }
+        });
+
+        resetBtn.addEventListener("click", function() {
+            count = 0;
+            countDisplay.textContent = count;
+            countDisplay.style.color = "#fff";
+        });
+    </script>
+</body>
+</html>
+<meta name="description" content="The most addictive clicker game online! Try to beat your high score!">
+<meta name="keywords" content="clicker game, fun game, online game, addictive game">
